@@ -37,8 +37,8 @@ class _RotationPageState extends State<RotationPage> {
     super.initState();
     _targetAngle = widget.steps.first['bearing_degrees'];
     _flutterTts.setLanguage("pt-BR");
-    _flutterTts.speak('Gire seu celular até ele apitar três vezes');
     _startCompassListener();
+    _flutterTts.speak('Gire seu celular até ele apitar três vezes');
   }
 
   void _startCompassListener() {
@@ -94,10 +94,9 @@ class _RotationPageState extends State<RotationPage> {
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) =>
-                      GoPage(name: widget.name, steps: widget.steps),
-                      maintainState: false
-                ));
+                    builder: (context) =>
+                        GoPage(name: widget.name, steps: widget.steps),
+                    maintainState: false));
           }
           closed = true;
         }

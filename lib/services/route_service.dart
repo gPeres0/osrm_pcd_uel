@@ -27,5 +27,17 @@ Future<List<Map<String, dynamic>>> getSegmentsFromCoordinates({
           "geometry": "true"
         }''');
   final data = json.decode(response.body);
-  return getSegmentsFromPolyline(data['routes'][0]['geometry']);
+  final segments = getSegmentsFromPolyline(data['routes'][0]['geometry']);
+  final distanceFirstPoint = haversineDistance(lat1, lon1,
+      segments.first['start_point'].lat, segments.first['start_point'].lon);
+  if (distanceFirstPoint > 10) {
+    segments.insert(0, {
+      "start_point": (lat1, lon1),
+      "end_point": segments.first['start_point'],
+      "distance_meters": distanceFirstPoint,
+      "bearing_degrees": calculateBearing(lat1, lon1,
+          segments.first['start_point'].lat, segments.first['start_point'].lon)
+    });
+  }
+  return segments;
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:osrm_pcd_uel/widgets/list_element.dart';
+import 'package:osrm_pcd_uel/widgets/manual.dart';
 
 class LocationsList extends StatelessWidget {
   const LocationsList({super.key});
@@ -23,7 +24,7 @@ class LocationsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(actions: const [Manual()],),
       body: ListView(
         children: List.generate(
           places.length,

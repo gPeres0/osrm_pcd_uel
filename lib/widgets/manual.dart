@@ -15,6 +15,8 @@ class _ManualState extends State<Manual> {
   void initState() {
     super.initState();
     _flutterTts.setLanguage("pt-BR");
+    _flutterTts.speak(
+            "Em sua tela está uma lista vertical de localizações da UEL, ao colocar seu dedo em uma delas será dito a você qual opção você selecionou , pressione novamente para gerar a rota da sua posição até seu destino. Você deverá girar seu telefone até que esteja apontando para a direção que deve seguir, isso será sinalizado com 3 vibrações e um efeito sonoro. Caminhe nessa direção até ser requisitado que gire novamente o celular, quando chegar ao destino receberá um áudio de chegada");
   }
 
   @override

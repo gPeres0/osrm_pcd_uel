@@ -11,7 +11,6 @@ class LocationsList extends StatelessWidget {
     (name: 'Cesa', lat: -23.32633, lon: -51.20470),
     (name: 'Departamento de Física', lat: -23.32646, lon: -51.20245),
     (name: 'Departamento de Estatística', lat: -23.32670, lon: -51.20221),
-    (name: 'Departamento de Estatística', lat: -23.32670, lon: -51.20221),
     (name: 'Departamento de Geociências', lat: -23.32673, lon: -51.20155),
     (name: 'Biblioteca Central', lat: -23.32637, lon: -51.20049),
     (

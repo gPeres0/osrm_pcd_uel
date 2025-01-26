@@ -148,11 +148,28 @@ class _RotationPageState extends State<RotationPage> {
       ),
       body: Center(
         child: loading
-            ? const CircularProgressIndicator()
+            ? CircularProgressIndicator(
+                color: Colors.blue[900],
+              )
             : Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  const Text('Gire seu celular até ele apitar três vezes'),
+                  Text(
+                      style: TextStyle(
+                        color: Colors.blue[900],
+                        fontSize: 17.0,
+                      ),
+                      'Gire seu celular até ele apitar três vezes'),
                   ElevatedButton(
+                      style: const ButtonStyle(
+                        shape: WidgetStatePropertyAll(CircleBorder(
+                          eccentricity: 1.0,
+                        )),
+                        elevation: WidgetStatePropertyAll(0),
+                        alignment: Alignment.center,
+                        padding: WidgetStatePropertyAll(EdgeInsets.only(
+                            top: 115, bottom: 115, left: 20, right: 20)),
+                      ),
                       onPressed: () async {
                         setState(() {
                           loading = true;
@@ -175,7 +192,12 @@ class _RotationPageState extends State<RotationPage> {
                               ));
                         }
                       },
-                      child: const Text('Recalcular rota'))
+                      child: Text(
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 40.0,
+                              color: Colors.blue[900]),
+                          'Recalcular rota'))
                 ],
               ),
       ),

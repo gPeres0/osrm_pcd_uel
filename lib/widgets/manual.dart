@@ -16,7 +16,7 @@ class _ManualState extends State<Manual> {
     super.initState();
     _flutterTts.setLanguage("pt-BR");
     _flutterTts.speak(
-            "Em sua tela está uma lista vertical de localizações da UEL, ao colocar seu dedo em uma delas será dito a você qual opção você selecionou , pressione novamente para gerar a rota da sua posição até seu destino. Você deverá girar seu telefone até que esteja apontando para a direção que deve seguir, isso será sinalizado com 3 vibrações e um efeito sonoro. Caminhe nessa direção até ser requisitado que gire novamente o celular, quando chegar ao destino receberá um áudio de chegada");
+        "Em sua tela está uma lista vertical de localizações da UEL, ao colocar seu dedo em uma delas será dito a você qual opção foi selecionada. Pressione novamente para gerar a rota da sua posição até seu destino. Você deverá girar seu telefone até que esteja apontando para a direção que deve seguir, isso será sinalizado com 3 vibrações e um efeito sonoro. Caminhe nessa direção até ser requisitado que gire novamente o celular, quando chegar ao destino receberá um áudio de chegada");
   }
 
   @override
@@ -28,8 +28,11 @@ class _ManualState extends State<Manual> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        onPressed: () => _flutterTts.speak(
-            "Em sua tela está uma lista vertical de localizações da UEL, ao colocar seu dedo em uma delas será dito a você qual opção você selecionou , pressione novamente para gerar a rota da sua posição até seu destino. Você deverá girar seu telefone até que esteja apontando para a direção que deve seguir, isso será sinalizado com 3 vibrações e um efeito sonoro. Caminhe nessa direção até ser requisitado que gire novamente o celular, quando chegar ao destino receberá um áudio de chegada"),
-        icon: const Icon(Icons.question_mark));
+      iconSize: 45,
+      onPressed: () => _flutterTts.speak(
+          "Em sua tela está uma lista vertical de localizações da UEL, ao colocar seu dedo em uma delas será dito a você qual opção foi selecionada. Pressione novamente para gerar a rota da sua posição até seu destino. Você deverá girar seu telefone até que esteja apontando para a direção que deve seguir, isso será sinalizado com 3 vibrações e um efeito sonoro. Caminhe nessa direção até ser requisitado que gire novamente o celular, quando chegar ao destino receberá um áudio de chegada"),
+      icon: const Icon(Icons.question_mark),
+      color: Colors.white,
+    );
   }
 }

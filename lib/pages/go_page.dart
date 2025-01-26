@@ -83,8 +83,16 @@ class _GoPageState extends State<GoPage> {
     }
     widget.steps.first['start_point'] =
         (lat: position.latitude, lon: position.longitude);
-    widget.steps.first['bearing_degrees'] = calculateBearing(position.latitude, position.longitude, widget.steps.first['end_point'].lat, widget.steps.first['end_point'].lon);
-    widget.steps.first['distance_meters'] = haversineDistance(position.latitude, position.longitude, widget.steps.first['end_point'].lat, widget.steps.first['end_point'].lon);
+    widget.steps.first['bearing_degrees'] = calculateBearing(
+        position.latitude,
+        position.longitude,
+        widget.steps.first['end_point'].lat,
+        widget.steps.first['end_point'].lon);
+    widget.steps.first['distance_meters'] = haversineDistance(
+        position.latitude,
+        position.longitude,
+        widget.steps.first['end_point'].lat,
+        widget.steps.first['end_point'].lon);
 
     Navigator.pushReplacement(
         context,
@@ -111,12 +119,28 @@ class _GoPageState extends State<GoPage> {
       ),
       body: Center(
         child: loading
-            ? const CircularProgressIndicator()
+            ? CircularProgressIndicator(
+                color: Colors.blue[900],
+              )
             : Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
+                      style: TextStyle(
+                        color: Colors.blue[900],
+                        fontSize: 17.0,
+                      ),
                       'Siga em frente por ${distanceInMeters.watch(context).round()} metros'),
                   ElevatedButton(
+                      style: const ButtonStyle(
+                        shape: WidgetStatePropertyAll(CircleBorder(
+                          eccentricity: 1.0,
+                        )),
+                        alignment: Alignment.center,
+                        elevation: WidgetStatePropertyAll(0),
+                        padding: WidgetStatePropertyAll(EdgeInsets.only(
+                            top: 115, bottom: 115, left: 20, right: 20)),
+                      ),
                       onPressed: () async {
                         setState(() {
                           loading = true;
@@ -139,7 +163,12 @@ class _GoPageState extends State<GoPage> {
                                   maintainState: false));
                         }
                       },
-                      child: const Text('Recalcular rota'))
+                      child: Text(
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 40.0,
+                              color: Colors.blue[800]),
+                          'Recalcular rota'))
                 ],
               ),
       ),
